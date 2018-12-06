@@ -1,0 +1,114 @@
+{% import "bootstrap/wtf.html" as wtf %} 
+{% extends 'base_layout.html'%}
+
+{%block content%}
+<div class="container-fluid text-center">
+	<div id="signupSuccess" class="alert alert-success"
+		style="display: none">
+		<p id="signupSuccessText">Thanks for signing up! You'll be among
+			the first to know when we launch.</p>
+	</div>
+	<div id="signupDuplicate" class="alert alert-success"
+		style="display: none">
+		<p id="signupDuplicateText">Fear not, you're already on the list!
+			You'll be among the first to know when we launch.</p>
+	</div>
+	<div id="signupError" class="alert alert-info" style="display: none">
+		<p id="signupErrorText">Well this is embarrassing. It looks like
+			we're having trouble getting you on the list.</p>
+	</div>
+	{% with messages = get_flashed_messages() %} 
+		{% if messages %}
+		<ul>
+			{%for message in messages%}
+				<li>{{ message }}</li> 
+			{% endfor %}
+		</ul>
+		{% endif %} 
+	{% endwith %}
+</div>
+<div class="well">
+	<div class="container   btn-success" data-toggle="collapse" data-target="#send"
+	aria-expanded="false">Send SMS Message</div>
+
+<div id="send" class="tab-pane fade collapse container">
+	<div class="col-sm-4">
+		<div class="highlight form-group required">
+			<strong class="vc">sms_send</strong>
+			<p class="nl">
+				<span class=" s1"></span>/sms/msg
+			</p>
+		</div>
+		<form class="form" action="{{url_for('twl.sms_send')}}" method="POST" role="form">
+			{{sform.hidden_tag()}}
+			<div class="form-group required">{{
+				wtf.form_field(sform.number) }}</div>
+			<div class="form-group required">{{
+				wtf.form_field(sform.message) }}</div>
+			<div class="form-group required">
+			<input type="submit" id="submit" name="submit" class="btn btn-primary"  value="Submit">
+			
+			</div>
+		</form>
+		<br>
+	</div>
+
+	<div class="col-sm-8">
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#result">Result</a></li>
+			<li><a data-toggle="tab" href="#code">View code</a></li>
+			<li><a data-toggle="tab" href="#raw">Raw</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane fade in active" id="result">{{sid}}</div>
+			<div class="tab-pane fade" id="code">{{scode}}</div>
+			<div class="tab-pane fade" id="raw"></div>
+		</div>
+
+	</div>
+</div>
+
+<div class=" container   btn-success " data-toggle="collapse" data-target="#reply"
+	aria-expanded="false">Reply to incoming SMS</div>
+
+<div id="reply" class="tab-pane fade collapse  container">
+	<div class="col-sm-4">
+		<div class="highlight form-group required">
+			<strong class="vc">Reply</strong>
+			<p class="nl">
+				<span class=" s1"></span>/sms/reply
+			</p>
+		</div>
+		<form action="">
+			{{rform.hidden_tag()}}
+			<div class="form-group required">
+				{{ wtf.form_field(rform.message) }}
+			</div>
+			<div class="form-group required">
+				{{ wtf.form_field(rform.submit) }}
+			</div>
+		</form>
+	</div>
+
+	<div class="col-sm-8">
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#result2">Result</a></li>
+			<li><a data-toggle="tab" href="#code2">View code</a></li>
+			<li><a data-toggle="tab" href="#raw2">Raw</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane fade in active" id="result2"></div>
+			<div class="tab-pane fade" id="code2">{{rcode}}</div>
+			<div class="tab-pane fade" id="raw2"></div>
+		</div>
+
+	</div>
+
+</div>
+</div>
+
+<br>
+<br>
+{% endblock %}

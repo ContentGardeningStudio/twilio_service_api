@@ -1,0 +1,11 @@
+{% if current_user and (current_user.is_authenticated) %}
+	
+        {% include "home.html" %}
+   
+{% else %}
+	{% extends "base_layout.html" %}
+		{% block content %}
+        	{% include "start.html" %}
+        {% endblock %}
+{% endif %}
+
