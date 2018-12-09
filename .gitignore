@@ -1,6 +1,13 @@
-.settings
+__pycache__/
+
+build/
+dist/
+*.egg-info/
+
+# Eclipse
 .project
 .pydevproject
-*.db
-__pycache__
-migrations/
+
+.settings/
+
+
