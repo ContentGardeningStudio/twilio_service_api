@@ -32,12 +32,12 @@ Register on [Twilio](https://twilio.com) to get your Twilio account identifier a
 To create a virtualenv run the following command:
 
 ```shell
-			$ python3 -m venv env
+$ python3 -m venv env
 ```
 Navigate to your virtualenv folder activate it with the following:
 
 ```shell
-			$ source bin/activate
+$ source bin/activate
 ```
 
 #### Setting environment variables
@@ -45,24 +45,24 @@ Navigate to your virtualenv folder activate it with the following:
 To protect the credentials, we avoid their direct declaration by defining the following environment variables.
 
 ```
-			* **TW_ACCOUNT_SID** - your Twilio account identifier
-			* **TW_AUTH_TOKEN** - your Twilio authentication token
-			* **TW_PHONE_NR** - your Twilio phone number
+* **TW_ACCOUNT_SID** - your Twilio account identifier
+* **TW_AUTH_TOKEN** - your Twilio authentication token
+* **TW_PHONE_NR** - your Twilio phone number
 ```
 
 
 ```shell    
-			(env) $ export TW_ACCOUNT_SID=Your_Twilio_Account_Identifier
+$ export TW_ACCOUNT_SID=Your_Twilio_Account_Identifier
 ```
 
 ```shell
-			(env) $ export TW_AUTH_TOKEN=Your_Twilio_Authentication_Token
+$ export TW_AUTH_TOKEN=Your_Twilio_Authentication_Token
 ```
 
 You can optionally add your Twilio phone number. 
 
 ```shell
-			(env) $ export TW_PHONE_NR=Your_Twilio_Phone_Number
+$ export TW_PHONE_NR=Your_Twilio_Phone_Number
 ```
 
 ### Sending a SMS programmatically
@@ -70,10 +70,10 @@ You can optionally add your Twilio phone number.
 To test the _send_ function, run inside the projet directory the following commands
 
 ```shell
-			(env) $ python
-			 ...
-			 >>> from twlapi.sms import send
-			 >>> send('+33062333xx', PHONE, 'Hi there!')
+$ python
+...
+>>> from twlapi.sms import send
+>>> send('+33062333xx', PHONE, 'Hi there!')
 ```	    
 ### Replying to incoming SMS from Flask
 
