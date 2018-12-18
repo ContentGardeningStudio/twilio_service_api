@@ -44,12 +44,9 @@ $ source bin/activate
 
 To protect the credentials, we avoid their direct declaration by defining the following environment variables.
 
-```
 **TW_ACCOUNT_SID** - your Twilio account identifier
 **TW_AUTH_TOKEN** - your Twilio authentication token
 **TW_PHONE_NR** - your Twilio phone number
-```
-
 
 ```shell    
 $ export TW_ACCOUNT_SID=Your_Twilio_Account_Identifier
