@@ -27,8 +27,6 @@ def send(to, from_, body):
         @param body: Content of the message 
         @rtype: MessageSID
     """
-    
-    #client = init()
     msg = CLIENT.messages.create(to=to, from_=from_, body=body)
     return (msg.sid)
     
@@ -46,7 +44,6 @@ def get_msg_sid_list():
     """ Give the list of all Messages SIDs
         @rtype: List
     """
-    #client = init()
     return [ msg.sid for msg in CLIENT.messages.list()]
 
 
