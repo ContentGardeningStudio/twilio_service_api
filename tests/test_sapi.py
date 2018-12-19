@@ -1,18 +1,14 @@
 '''
-Created on Dec 10, 2018
-
-@author: loup
+Usage:
+    $ pytest -q --number="<to>" --message="<message>"
 '''
-import pytest
 
 from twilio_service_api.sms import *
 
 
-def test_send():
-    dest = "+4901704499765"
-    phone = PHONE
-    msg = "Testing send function"
-    res = send(dest, phone, msg)
+def test_send(number, message):
+
+    res = send(number, PHONE, message)
     assert len(res) != 0
 
 
