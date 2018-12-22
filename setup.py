@@ -1,24 +1,18 @@
-'''
-Created on Dec 9, 2018
 
-@author: A. 
-'''
-import os
 from setuptools import setup, find_packages
 
 setup(
       name='twilio_service_api',
       version='0.0.1',
       description='Services using Twilio API',
-      url='',
+      url='https://github.com/ContentGardeningStudio/twilio_service_api',
       author='A. Ayeva',
       author_email='ahidjo.ayeva@gmail.com',
-      license='',
+      license='MIT',
       include_package_data=False,
       packages=find_packages("."),
       install_requires=[
           'twilio',
-         
       ],
-      zip_safe=False
+      zip_safe=True
     )
