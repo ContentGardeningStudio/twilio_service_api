@@ -78,5 +78,5 @@ $ python
 
 To automate SMS replies the need you'll need a Webhook. Using Python you can implement a reply with Django or Flask.
 
-To test this case, see the Twilio Flask App example (link to twilio flask app)
+To test this case, see our Twilio Flask App project.
 	
