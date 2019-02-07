@@ -76,7 +76,17 @@ $ python
 ```	    
 ### Replying to incoming SMS from Flask
 
-To automate SMS replies the need you'll need a Webhook. Using Python you can implement a reply with Django or Flask.
+To automate SMS replies you'll need a Webhook. Using Python you can implement a reply with Django or Flask.
 
-To test this case, see our Twilio Flask App project.
+Using Flask, the _reply_ view is implemented as follow:
+ 
+```python
+@app.route('/sms/reply', methods=['GET', 'POST'])
+def sms_reply():
+
+    msg = "Testing reply"
+    resp = MessagingResponse()
+    resp.message(msg)
+    return str(resp)
+```
 	
